@@ -1,4 +1,4 @@
-const {db, Game, System} = require('./server/db/index')
+const {db, Game, System, User} = require('./server/db/index')
 
 const games = [{
         name: 'minecraft',
@@ -33,6 +33,7 @@ const systems = [{
     logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/PlayStation_logo.svg/1200px-PlayStation_logo.svg.png'
 }]
 
+
 const seed = async () => {
     try {
         await db.sync({ force: true });
@@ -42,6 +43,11 @@ const seed = async () => {
         await Promise.all(systems.map(system => {
             return System.create(system);
         }))
+        await User.create({
+            email: 'cody@email.com',
+            password: 'destruction'
+
+        })
     } catch (err) {
         console.log('Error in Seeding', err);
     }
