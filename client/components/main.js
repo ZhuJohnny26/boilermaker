@@ -13,7 +13,6 @@ class Main extends React.Component{
     this.props.fetchMe()
   }
   render(){
-    const {user} = this.props
     if (this.props.userCurrentlyBeingFetched){
       return (
         <div>Loading</div>
