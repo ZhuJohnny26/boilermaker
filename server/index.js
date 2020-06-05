@@ -11,6 +11,10 @@ app.use(express.static(path.join(__dirname, '../public')))
 
 // Any routes or other various middlewares should go here!
 
+if (process.env.NODE_ENV === 'development') {
+  require('../localSecrets'); // this will mutate the process.env object with your secrets.
+}
+
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
@@ -41,6 +45,7 @@ passport.deserializeUser((id, done) => {
 
 app.use('/api', require('./api'))
 app.use('/auth', require('./auth'))
+
 
 
 // Make sure this is right at the end of your server logic!

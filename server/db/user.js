@@ -15,7 +15,7 @@ const User = db.define('user', {
     password: Sequelize.STRING,
     imageUrl: Sequelize.STRING,
     googleId: Sequelize.STRING,
-    salt: Sequelize.STRING
+    salt: Sequelize.STRING,
 }, { 
     hooks: {
     beforeCreate: setSaltAndPassword,

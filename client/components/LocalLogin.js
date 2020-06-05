@@ -5,6 +5,7 @@ import {login, signUp} from '../redux/auth'
 const LocalLoginForm = (props) => {
   const {handleSubmit} = props
   return (
+    <div>
     <form onSubmit={handleSubmit}>
       <div className='flex column'>
         <div className='flex column m1'>
@@ -20,6 +21,10 @@ const LocalLoginForm = (props) => {
         </div>
       </div>
     </form>
+    <form method='get' action='/auth/google'>
+     <button type='submit' className='btn bg-red white p1 rounded'>Login with Google</button>
+    </form>
+    </div>
   )
 }
 
